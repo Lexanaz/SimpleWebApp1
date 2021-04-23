@@ -127,4 +127,30 @@ public class ZakazDAO {
         }
         return 0;
     }
+    public static Sklad Send(int id) {
+
+        Sklad product = null;
+        try{
+            Class.forName("com.mysql.jdbc.Driver").getDeclaredConstructor().newInstance();
+            try (Connection conn = DriverManager.getConnection(url, username, password)){
+
+                String sql = "SELECT * FROM sklad WHERE idsklad=?";
+                try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
+                    preparedStatement.setInt(1, id);
+                    ResultSet resultSet = preparedStatement.executeQuery();
+                    if(resultSet.next()){
+
+                        int prodId = resultSet.getInt(1);
+                        String description = resultSet.getString(2);
+                        product = new Sklad(prodId,description);
+                    }
+                }
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return product;
+    }
+
 }

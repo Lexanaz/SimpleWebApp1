@@ -11,5 +11,7 @@
         <property name="hbm2ddl.auto">update</property>
         <mapping class="model.ZakazEntity"/>
         <mapping resource="map.xml"/>
+        <mapping class="model.Sklad"/>
+        <mapping class="model.ZakazEntity"/>
     </session-factory>
 </hibernate-configuration>

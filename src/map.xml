@@ -18,4 +18,13 @@
             <column name="email" sql-type="varchar(45)" length="45" not-null="true"/>
         </property>
     </class>
+    <class name="model.Sklad" table="sklad" schema="zakazi">
+        <id name="idsklad">
+            <column name="idsklad" sql-type="int(11)"/>
+        </id>
+        <property name="description">
+            <column name="description" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+    </class>
+
 </hibernate-mapping>
